@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhav</title>
+    <link
+     rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" 
+     />
+     <link rel="stylesheet" href="../CSS/style.css">
+
+     <style> 
+     .section1 {
+        text-align: center;
+        padding-top: 160px;
+        padding-bottom: 80px;
+        background: #fbde74;
+        }
+    .section1 h1{
+        letter-spacing: 10px;
+        text-transform: uppercase;
+    }
+
+    .mainContent{
+        width: 90%;
+        margin: 50px auto;
+        position: relative;
+    }
+
+    .form {
+        display: block;
+        font-size: 16px;
+        color: #5a5a5a;
+        line-height: 40px;
+        width: 90%;
+    }
+
+    select{
+        margin: 10px 0;
+        width: 80px ;
+        padding: 5px;
+        margin-right: 10px;
+    }
+    
+    legend{
+        font-size: 25px;
+        font-weight: bold;
+        color: #461616;
+        padding: 10px;
+    }
+    fieldset{
+        padding: 10px;
+        border-radius: 10px;
+        width: 500px;
+        height: fit-content;
+    }
+    .cardImage{
+        /* border: 1px solid red; */
+        display: inline-flex;
+        float: inline-end;
+    }
+
+    .cardImage img{
+        width: 50px;
+        object-fit: contain;
+        object-position: center;
+        /* border: 2px solid red; */
+        margin: 5px;
+
+    }
+
+    fieldset.placeOrder{
+
+        width: 70%;
+        margin: auto;
+        min-width: 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .placeOrder .btn{
+        padding: 10px;
+        width: 30%;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 2px 2px 5px black;
+        background: #f0c31d;
+        color: #461616;
+        font-size: large;
+        font-weight: bolder;
+        letter-spacing: 2px;
+
+    }
+    .orderForm{
+        display: flex;
+        flex-wrap: wrap;
+        /* border: 1px solid red; */
+        justify-content: space-evenly;
+
+    }
+</style>
+
+     
+
+</head>
+<body>
+    <div class="navbar">
+        <i class="fa fa-bars checkbtn"></i>
+        <label class="logo">MADHAV</label>
+        
+        <ul class="right">
+            <li>
+                <a href="cartwish.html">
+                    <span class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"><span class="counter">0</span></i>
+                        
+                    </span>
+                </a>
+                
+            </li>
+            <li>
+                <a href="#">
+                <span class="icon" id="profile"
+                ><i class="far fa-user"></i
+                    ></span>
+                </a>                
+            </li>
+        </ul>
+        <ul class="left ">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a class="active" href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>  
+    <div class="login">
+        <div class="container">
+           
+            <div class="lgn">
+               
+                <a href="#" id="login" class="hover_btn "><i class="fa fa-user"></i> Login</a>   
+               
+                <a href="#" id="reg" class="hover_btn reg active"><i class="fa fa-user"></i> Register</a>   
+            </div>
+            <form id="registrationTab"  method="post" action="http://localhost:3000/registerUser">
+                <label for="ph">Fullname</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Krishna .." required>
+
+
+                <label for="ph">Phone Number</label>
+                <input name="phone" type="text" id="ph" placeholder="+91 9778937823" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Email Adress" required>
+
+                <label for="password">Create Password</label>
+                <input type="password" id="password" name="password" placeholder="password">
+
+                <button class="btn" type="submit" id="regBtn"> Submit</button>
+            </form>
+
+            <form id="loginTab" method="post" action="http://localhost:3000/loginUser" class="invisible">
+                <label for="ph">Phone Number</label>
+                <input type="text" id="loginph" name="phone" placeholder="+91 9778937823" required>
+                <label for="email">Email Address</label>
+                <input type="email" id="lgnemail" name="email" placeholder="Email Adress" required>
+                <label for="password">Password</label>
+                <input type="text" name="password" id="lgnPassword" placeholder="Password">
+
+                <button class="btn" type="submit" id="lgnBtn"> Submit</button>
+                
+            </form> 
+           
+            
+            
+            
+        </div>
+        <div class="image"><div class="close-icon">
+            <i class="fas fa-times fa-x"></i>
+        </div></div>
+        
+    </div>
+
+    <div class="mainSection">
+        <div class="section1">
+            <h1> Order </h1>
+        </div>
+        <div class="mainContent">
+            <form action="http://localhost:3000/order" method="post" id="orderForm" onsubmit="emptyCart()">
+
+                <fieldset class="placeOrder">
+                    <legend>Place Order</legend>
+                    <div class="orderBill">
+
+                    </div>
+                    <button type="submit" class="btn">Pay</button>
+                </fieldset>
+
+                <div class="orderForm">
+                    <fieldset>
+                        <legend>Billing Address</legend>
+                        
+                        <label class="form" for="fname">First Name*</label>
+                        <input required class="form" type="text" id="fname" name="firstName"/>
+        
+                        <label class="form" for="lname" >Last Name*</label>
+                        <input required class="form" type="text" id="lname" name="lastName" />
+                        
+                        <label class="form" for="email">Email*</label>
+                        <input required class="form" type="email" id="pay-email" name="email"/>
+                        
+                        <label class="form" for="phone" >PhoneNumber*</label>
+                        <input required class="form" type="text" id="phone" name="phone" />
+        
+                        <label for="address" class="form">Address*</label>
+                        <input type="text" id="address" class="form" requied name="address">
+                        
+                        <label for="city" class="form">City*</label>
+                        <input type="text" id="city" class="form" requied name="city">
+                        
+                        <label for="state" class="form">State*</label>
+                        <input type="text" id="state" class="form" requied name="state">
+        
+                        <label for="pinCode" class="form">Pin Code*</label>
+                        <input type="text" id="pinCode" class="form" requied name="pinCode">
+    
+                    </fieldset>
+    
+                    <fieldset>
+                        <legend>Payment Details</legend>
+    
+                        <label for="owner" class="form">Owner*</label>
+                        <input type="text" id="owner" class="form" requied name="owner">
+    
+                       <label for="cvv" class="form">CVV*</label>
+                        <input type="text" id="cvv" class="form" requied name="cvv">
+    
+                       <label for="cardNumber" class="form">Card Number*</label>
+                        <input type="text" id="cardNumber" class="form" requied name="cardNumber">
+    
+                        <label for="ex-date" class="form">Expiry Date*</label>
+    
+                        <select name="Ex-month" id="ex-month">
+                            
+                            <option value="Jan">Jan</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Apr">Apr</option>
+                            <option value="May">May</option>
+                            <option value="June">Jun</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Aug">Aug</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Oct</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dec">Dec</option>
+                            
+                        </select>
+    
+                        <select name="Ex-year" id="ex-year">
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>             
+                        </select>
+    
+                        <div class="cardImage">
+                            <img src="../media/visa.png" alt="">
+                            <img src="../media/mastercard.png" alt="">
+                            <img src="../media/Rupay.png" alt="">
+                            
+                        </div>
+    
+    
+                        
+                    </fieldset>
+
+                </div>
+
+               
+
+
+                
+
+            </form>
+
+        </div>
+
+        
+    </div>
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="row">
+            <div class="footer-col">
+                <h4>MADHAV</h4>
+                <ul>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">our services</a></li>
+                <li><a href="#">privacy policy</a></li>
+                <li><a href="#">affiliate program</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get help</h4>
+                <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">shipping</a></li>
+                <li><a href="#">returns</a></li>
+                <li><a href="#">order status</a></li>
+                <li><a href="#">payment options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick shop</h4>
+                <ul>
+                <li><a href="#">accessories</a></li>
+                <li><a href="#">groceries</a></li>
+                <li><a href="#">daily care</a></li>
+                <li><a href="#">clothing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us on</h4>
+                <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="../JavaScript/index.js"></script>
+<script>
+    let totalPrice=JSON.parse(localStorage.getItem("total"));
+    let cartListEl=JSON.parse(localStorage.getItem("count-cart"));
+    const orderBillEl=document.querySelector('.orderBill');
+
+    orderBillEl.innerHTML=`<h4>Total : ${totalPrice} </h4> `;
+
+    console.log(cartListEl.length)
+
+    function emptyCart(){
+        localStorage.setItem("count-cart", JSON.stringify([]));
+        localStorage.setItem("message", "Order Successful!!!");
+        localStorage.setItem("total", '0');
+
+    }
+
+</script>
+</html>

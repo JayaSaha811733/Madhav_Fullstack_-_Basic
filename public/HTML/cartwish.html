@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhav</title>
+    <link
+     rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" 
+     />
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <style>
+        .center-section{
+            padding: 120px 0px;
+            width: 90vw;
+            margin: 0 auto;
+            /* border: 1px solid grey; */
+            margin-bottom: 10px;
+
+        }
+        .button{
+            padding: 15px ;
+            font-size: 20px;
+            border: none;
+            background: #FFD966;
+            cursor: pointer;
+            transition: all .3s linear;
+            letter-spacing: 5px;
+            font-family: cursive;
+        }
+        .btn-container{
+            display: flex;
+            justify-content: center;
+        }
+        .button:nth-child(1){
+            border-top-left-radius:.5rem;
+        }
+
+        .button:nth-child(2){
+            border-top-right-radius:0.5rem;
+        }
+        .button:hover:not(.live){
+            background: #F4B183;
+            color: white;
+        }
+        .tabs-content{
+            padding: 1rem 1rem;
+            background:#FFD966;
+            /* border: 1px solid grey; */
+        }
+        
+        .content{
+            min-height: fit-content;  
+            display: none;
+        }
+        .content.live{
+            min-height:40vh;
+            display: block;
+            background: white;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .button.live{
+            background: #FFF2CC;
+        }
+        .cart-items{
+            width: 100%;
+            height: fit-content;
+            /* border: 1px solid grey; */
+            box-sizing: border-box;
+            background-position: center;
+        }
+
+
+
+
+
+        
+        .rating{
+            margin: 10px;
+            border:1px solid #029c42;
+            background:#36AE7C;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            color: white;
+            width: fit-content;
+            padding:3px 10px;
+            border-radius: 15px;
+            letter-spacing: 3px;
+            font-weight: bolder;
+           
+        }
+
+        .products{
+            height: fit-content;
+            width: 100%;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            /* border: 2px solid grey; */
+        }
+        .card{
+            border: 1px solid rgba(170, 170, 170, 0.322);
+            z-index: 0;
+            margin: 10px 1px;
+            background: white;
+            position: relative;
+            
+        }
+        .card .des h5{
+            font-size: 70%;
+            margin: 5px 10px;
+        }
+        .card .des h4{
+            font-size: 100%;
+            margin: 5px 10px;
+        }
+        
+        .card .des .rating{
+            position: absolute;
+            margin: 0;
+            right: 5%;
+            bottom: 3%;
+
+        }
+
+        .img{
+            /* border: 0.4px solid grey; */
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+            margin: auto;
+            margin-top: 2%;
+            overflow: hidden;
+            display: flex;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+                
+        .wishlist{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 0px;
+            text-align: center;
+            font-size: 25px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4); 
+            color: rgba(177, 176, 176, 0.644);
+            /* border: 1px solid grey; */
+            transition: all .1s;
+            
+        }
+        .wishlist:hover{
+            color: grey;
+            font-size: 30px;
+            opacity: .9;
+        }
+         .wishlist.active{
+            color: rgb(236, 25, 60);
+            text-shadow: 2px 2px 3px rgba(236, 25, 60, .5);
+            font-size: 28px;
+        }
+        @media (max-width: 800px){
+            .card .des .rating{
+                font-size: 12px;
+                padding:0 4px;
+                
+
+            }
+        }
+
+        .cart-items #items{
+            max-width: 500px;
+            min-height: 300px;
+            border:1px solid white;
+            margin: 10px auto;
+        }
+        .cart-items #total{
+            max-width: 100%;
+            height: fit-content;
+            /* border:1px solid red; */
+            background-color:#FFD966 ;
+            margin: auto;
+            margin-bottom:10px ;
+            display:flex;
+            align-items: center;
+            position: relative;
+        }
+        #total h3{
+            padding: 0 20px;
+            color: rgb(95, 72, 48);
+            text-shadow: 0px 0px 3px rgb(239, 234, 234);
+        }
+
+        #total .btn{
+            position: absolute;
+            right: 10%;
+            top: -20px;
+            padding: 8px;
+            background: rgb(239, 143, 17);
+            border: none;
+            border-radius: 5px;
+            font-weight: bolder;
+            font-size: 18px;
+            font-family:Arial, Helvetica, sans-serif;
+            color: #f6f5f0 ;
+            letter-spacing: 2px;
+            text-shadow: 0px 0px 3px rgb(80, 76, 76);
+            box-shadow: 5px 5px 8px white;
+            
+        }
+
+
+
+
+        .cart-desc{
+            /* border: 1px solid grey; */
+            display: flex;
+            align-items: center;
+            position: relative;
+            box-shadow: 0px 0px 2px rgb(208, 188, 188);
+            margin-top:10px;
+        }
+        .cart-desc img{
+            width: 100px;
+            height:100px;
+            object-fit: contain;
+
+        }
+
+        .cart-desc .close-icon{
+            position: absolute;
+            color: black;
+
+        }
+        .cart-desc .close-icon:hover{
+            color: rgb(236, 101, 11);
+            text-shadow: 0 0 3px rgb(227, 183, 102);
+            border: 1px solid red;
+        }
+
+
+        
+        
+
+        
+
+    </style>
+     
+
+</head>
+<body>
+    <div class="navbar">
+        <i class="fa fa-bars checkbtn"></i>
+        <label class="logo">MADHAV</label>
+        
+        <ul class="right">
+            <li>
+                <a class="active"  href="cartwish.html">
+                    <span class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"><span class="counter">0</span></i>
+                        
+                    </span>
+                </a>
+                
+            </li>
+            <li>
+                <a href="#">
+                <span class="icon" id="profile"
+                ><i class="far fa-user"></i
+                    ></span>
+                </a>                
+            </li>
+        </ul>
+        <ul class="left ">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div> 
+    
+    <div class="login">
+        <div class="container">
+           
+            <div class="lgn">
+               
+                <a href="#" id="login" class="hover_btn "><i class="fa fa-user"></i> Login</a>   
+               
+                <a href="#" id="reg" class="hover_btn reg active"><i class="fa fa-user"></i> Register</a>   
+            </div>
+            <form id="registrationTab"  method="post" action="http://localhost:3000/registerUser">
+                <label for="ph">Fullname</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Krishna .." required>
+
+
+                <label for="ph">Phone Number</label>
+                <input name="phone" type="text" id="ph" placeholder="+91 9778937823" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Email Adress" required>
+
+                <label for="password">Create Password</label>
+                <input type="password" id="password" name="password" placeholder="password">
+
+                <button class="btn" type="submit" id="regBtn"> Submit</button>
+            </form>
+
+            <form id="loginTab" method="post" action="http://localhost:3000/loginUser" class="invisible">
+                <label for="ph">Phone Number</label>
+                <input type="text" id="loginph" name="phone" placeholder="+91 9778937823" required>
+                <label for="email">Email Address</label>
+                <input type="email" id="lgnemail" name="email" placeholder="Email Adress" required>
+                <label for="password">Password</label>
+                <input type="text" name="password" id="lgnPassword" placeholder="Password">
+
+                <button class="btn" type="submit" id="lgnBtn"> Submit</button>
+                
+            </form> 
+           
+            
+            
+            
+        </div>
+        <div class="image"><div class="close-icon">
+            <i class="fas fa-times fa-x"></i>
+        </div></div>
+        
+    </div>
+
+    <div class="center-section">
+        <div class="btn-container">
+            <button class="button " data-id="step1"><i class="fa-solid fa-cart-shopping "></i>Cart</button>
+            <button class="button " data-id="step2"><i class="fa-solid fa-heart"></i>Wishlist</button>
+        </div>
+        <div class="tabs-content">
+            <div class="content live " id="step1">
+                <div class="cart-items">
+                    <div id="total">
+                        <h3>Total:</h3>
+                        <h3 id="total-price">0</h3>
+
+                        <a class="btn" href="paymentPage.html"> Check Out</a>
+
+
+                    </div>
+                    <div id="items"></div>
+                </div>
+            </div>
+            <div class="content live" id="step2">
+                <div class="products">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="row">
+            <div class="footer-col">
+                <h4>MADHAV</h4>
+                <ul>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">our services</a></li>
+                <li><a href="#">privacy policy</a></li>
+                <li><a href="#">affiliate program</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get help</h4>
+                <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">shipping</a></li>
+                <li><a href="#">returns</a></li>
+                <li><a href="#">order status</a></li>
+                <li><a href="#">payment options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick shop</h4>
+                <ul>
+                <li><a href="#">accessories</a></li>
+                <li><a href="#">groceries</a></li>
+                <li><a href="#">daily care</a></li>
+                <li><a href="#">clothing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us on</h4>
+                <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    
+   
+</body>
+<script src="../JavaScript/index.js"></script>
+<script>
+    const contentEl=document.querySelectorAll(".content");
+    const productsEl=document.querySelector(".products");
+    const tabEl=document.querySelector(".center-section");
+    const btnEls=document.querySelectorAll(".button");
+    const articleEls=document.querySelectorAll(".content");
+
+    let message=localStorage.getItem("message");
+
+    if(message!=""){
+        alert(message);
+        localStorage.setItem("message", "");
+    }
+
+
+
+    tabEl.addEventListener("click",(event)=>{
+        const tabId= event.target.dataset.id;
+        if(tabId){
+            btnEls.forEach(btn=>{
+                btn.classList.remove("live");
+            });
+            event.target.classList.add("live");
+            articleEls.forEach(article=>{
+                article.classList.remove("live")
+            });
+            const element=document.getElementById(tabId);
+            element.classList.add("live");
+        }
+    })
+
+
+
+
+
+    let wishlistCount=JSON.parse(localStorage.getItem("count-wishlist"));
+    
+    let CartItem=JSON.parse(localStorage.getItem("count-cart"));
+
+    
+
+    let cartList=[];
+
+    const itemListEl=document.getElementById("items");
+    const totalPriceEl=document.getElementById("total-price")
+    
+    let totalPrice=0;
+
+    
+
+    if(!CartItem || CartItem.length<1){
+        contentEl[0].style.backgroundImage='url(https://cdn.dribbble.com/users/1010436/screenshots/11302442/media/2a3ea72748e92c00a972259ee9550416.jpg)';
+
+    }
+    else{
+        contentEl[0].style.backgroundImage='none';
+        fetch("../Others/all.json").then(res=>res.json()).then(data=>{
+        cartList=data;
+
+        
+
+        CartItem.forEach(element=>{
+            totalPrice=totalPrice+cartList[element-1].Price;
+            totalPriceEl.innerHTML=`<i class="fa-solid fa-indian-rupee-sign"></i> ${totalPrice}`;
+            updateLocalStorage()
+        })
+
+
+        CartItem.forEach(element=>{
+
+            let newCardEl=document.createElement("div");
+            newCardEl.setAttribute('id',element);
+            newCardEl.innerHTML=`                
+                            <div class="cart-desc">
+                            <img src="${cartList[element-1].Image}" alt="">
+                            <div>
+                                <h5>${cartList[element-1].Product}  (${cartList[element-1].Origin})<h5>                           
+                                    <h4><i class="fa-solid fa-indian-rupee-sign"></i>${cartList[element-1].Price}
+                                    </h4>
+                            </div>
+                            <div class="close-icon removeCartItem " id="${element}">
+                                <i class="fas fa-times fa-x " ></i>
+                            </div>
+
+                        </div>`
+            itemListEl.appendChild(newCardEl)
+            
+            
+            
+        });
+        // console.log(totalPrice)
+
+        const removeCartItemEl=document.querySelectorAll(".removeCartItem");
+        console.log(removeCartItemEl.length)
+
+        removeCartItemEl.forEach(element => {
+
+            const cardEl=document.getElementById(element.id);
+            
+            // console.log(cardEl)
+            element.addEventListener("click",()=>{
+                // alert(wishlistCount)
+                CartItem.splice(CartItem.indexOf(element.id),1);
+                itemListEl.removeChild(cardEl);
+                if(CartItem.length===0){
+                    contentEl[1].style.backgroundImage='uurl(https://cdn.dribbble.com/users/1010436/screenshots/11302442/media/2a3ea72748e92c00a972259ee9550416.jpg)';
+                }
+                updateLocalStorage();
+                location.reload()
+
+                
+            })
+        });
+    
+    })
+}
+
+
+    let productList=[];
+    let cardId;
+
+    function updateLocalStorage() {
+        localStorage.setItem("count-wishlist", JSON.stringify(wishlistCount));
+        localStorage.setItem("card-id", JSON.stringify(cardId))
+        localStorage.setItem("count-cart", JSON.stringify(CartItem));
+        localStorage.setItem("total", JSON.stringify(totalPrice));
+    }
+ 
+
+    if(!wishlistCount || wishlistCount.length<1){
+        wishlistCount=[];
+        contentEl[1].style.backgroundImage='url(../media/emptywish.jpg)';
+    }
+    else{
+        contentEl[1].style.backgroundImage='none';
+        fetch("../Others/all.json").then(res=>res.json()).then(data=>{
+        productList=data;
+        wishlistCount.forEach(element => {
+            let newCardEl=document.createElement("div");
+            newCardEl.classList.add("card");
+            newCardEl.setAttribute('id',element);
+            newCardEl.innerHTML=`<div class="wishlist" id="${element}">
+                            <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div class="img" style='background-image:url(${productList[element-1].Image})'></div>
+                            <div class="des">
+                            <h5>${productList[element-1].Product}  (${productList[element-1].Origin})</h5>                           
+                            <h4><i class="fa-solid fa-indian-rupee-sign"></i>${productList[element-1].Price}</h4>
+                            <div class="rating">4.5</div>
+                            </div> `
+            productsEl.appendChild(newCardEl)
+        });
+        cardSize();
+        const wishEl=document.querySelectorAll(".wishlist");
+        wishEl.forEach(element => {
+            if(wishlistCount.indexOf(element.id)+1>0){
+                element.classList.add("active");
+            }
+            const cardEl=document.getElementById(element.id);
+            
+            // console.log(cardEl)
+            element.addEventListener("click",()=>{
+                // alert(wishlistCount)
+                wishlistCount.splice(wishlistCount.indexOf(element.id),1);
+                productsEl.removeChild(cardEl);
+                if(wishlistCount.length===0){
+                    contentEl[1].style.backgroundImage='url(../media/emptywish.jpg)';
+                }
+                updateLocalStorage();
+            })
+        }
+    )
+        
+        const cardElement=document.querySelectorAll(".card");
+        cardElement.forEach(element => {
+            element.addEventListener("click",(event)=>{
+                let num=wishlistCount.indexOf(element.id)
+                // console.log(num)
+                // console.log(element.id)
+                cardId=element.id;
+                updateLocalStorage();
+                console.log(num>=0 && event.target!==wishEl[num])
+                if(num>=0 && event.target!==wishEl[num]){
+                    window.location.href = "onePage.html";
+                }
+            })
+        });
+        
+        })
+    }
+    
+    window.onresize=function (){
+        cardSize()
+    }
+
+   
+    function cardSize(){
+        let size=contentEl[1].offsetWidth-21;
+        // alert(size)
+        let cardWidth, cardHeight;
+
+        if(window.innerWidth>1000){
+            cardWidth=size/5;     
+        }else if(window.innerHeight>800){
+            cardWidth=size/4;
+        }
+        else if(window.innerWidth>500){
+            cardWidth=size/3;
+        }
+        else{
+            cardWidth=size/2;
+        }
+        cardHeight=cardWidth*1.4;
+        // alert( cardWidth+" , "+ cardHeight)
+
+        const cardEl=document.querySelectorAll(".card");
+        const imgEl=document.querySelectorAll(".img");
+        const desEl=document.querySelectorAll(".des");
+        
+        cardEl.forEach(element=>{
+            // console.log(element)
+            element.style.width=cardWidth+"px";
+            element.style.height=cardHeight+"px";
+        })
+        imgEl.forEach(element=>{
+            element.style.width=90+"%";
+            element.style.height=cardWidth+"px";
+        })
+        desEl.forEach(element=>{
+            element.style.height=cardHeight-cardWidth-10+"px";
+        })
+
+    }
+    
+    
+</script>
+
+</html>

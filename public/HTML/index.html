@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhav</title>
+    <link
+     rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" 
+     />
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <style>
+        
+
+        .center-piece{
+            width: 100%;
+            min-height: 100vh;
+            padding: 80px 0px;
+        }
+        .hero{
+            width: 100%;
+            
+            
+        }
+        .hero img{
+            margin: auto;
+            display: block;
+            width: 99%;
+            box-sizing: border-box;
+        }
+        .heroImage{
+            width: 100%;
+            /* border: 1px solid grey; */
+            margin-top: 0px;
+            margin: auto;
+            position: relative;
+        }
+       
+
+        .home-section2{
+
+            min-height: 600px;
+            width: 95%;
+            margin: 80px auto;
+            font-size: medium;
+            text-align: center;
+            /* border: 1px solid grey; */
+        }
+        .home-section2 img{
+            width: 100%;
+        }
+
+        .home-section3 {
+            text-align: center;
+            margin: 100px 0px;
+        }
+        .home-section3 .sec1 {
+            width: 95%;
+            margin: auto;
+            height: fit-content;
+            border-top: 1px solid grey;
+            border-bottom: 1px solid grey;
+        }
+        .home-section3 img{
+            max-width: 90%;
+        }
+
+        .home-section4 {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 100px auto;
+        }
+
+        .home-section4 .sec1 {
+            width:98% ;
+            margin:auto;
+            height: fit-content;
+            /* border: 2px solid rgb(177, 19, 19); */
+            position: relative;;
+        }
+
+        .home-section4 img{
+            width: 100%;
+            height: fit-content;
+        }
+
+        .btnshop1{
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width:15%;
+            height:8%;
+            border-radius: 20px;
+            background: rgb(99, 183, 231);
+            background-image: url(../media/shopNow.png);
+            background-position: center;
+            background-size: cover;   
+        }
+
+        .home-section5 h2 {
+            text-align: center;
+        }
+        .home-section5 {
+            width: 95%;
+            margin: 100px auto;
+            height: fit-content;
+            /* border: 1px solid grey; */
+        }
+        .home-section5 img{
+            width: 100%;
+            height: fit-content;
+        }
+
+
+        
+    </style>
+    
+     
+
+</head>
+<body>
+    <div class="navbar">
+        <i class="fa fa-bars checkbtn"></i>
+        <label class="logo">MADHAV</label>
+        
+        <ul class="right">
+            <li>
+                <a href="cartwish.html">
+                    <span class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"><span class="counter">0</span></i>
+                        
+                    </span>
+                </a>
+                
+            </li>
+            <li>
+                <a href="#">
+                <span class="icon" id="profile"
+                ><i class="far fa-user"></i
+                    ></span>
+                </a>                
+            </li>
+        </ul>
+        <ul class="left ">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div> 
+    
+    <div class="login">
+        <div class="container">
+           
+            <div class="lgn">
+               
+                <a href="#" id="login" class="hover_btn "><i class="fa fa-user"></i> Login</a>   
+               
+                <a href="#" id="reg" class="hover_btn reg active"><i class="fa fa-user"></i> Register</a>   
+            </div>
+            <form id="registrationTab" action="http://localhost:3000/registerUser" method="post">
+                <label for="ph">Fullname</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Krishna .." required>
+
+
+                <label for="ph">Phone Number</label>
+                <input name="phone" type="text" id="ph" placeholder="+91 9778937823" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Email Adress" required>
+
+                <label for="password">Create Password</label>
+                <input type="password" id="password" name="password" placeholder="password">
+
+                <button class="btn" type="submit" id="regBtn"> Submit</button>
+            </form>
+
+            <form id="loginTab" method="post" action="http://localhost:3000/loginUser" class="invisible">
+                <label for="ph">Phone Number</label>
+                <input type="text" id="loginph" name="phone" placeholder="+91 9778937823" required>
+                <label for="email">Email Address</label>
+                <input type="email" id="lgnemail" name="email" placeholder="Email Adress" required>
+                <label for="password">Password</label>
+                <input type="text" name="password" id="lgnPassword" placeholder="Password">
+
+                <button class="btn" type="submit" id="lgnBtn"> Submit</button>
+                
+            </form> 
+           
+            
+            
+            
+        </div>
+        <div class="image"><div class="close-icon">
+            <i class="fas fa-times fa-x"></i>
+        </div></div>
+        
+    </div>
+
+    <div class="center-piece">
+        <div class="hero">
+            <div class="heroImage">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/cf8c5599420499.5f09d760d115b.jpg" alt="">
+                <a href="shop.html" class="btnshop"></a>
+            </div>   
+        </div>
+        <div class="home-section2">
+            <h2>Best Seller</h2>
+            <div class="trendy"><img src="https://images.creativemarket.com/0.1.0/ps/8633378/1686/1125/m1/fpnw/wm0/mockup_1-(7)-.jpg?1593457465&s=f05e7498927f7b55d425d5aa5bb88209" alt=""></div>
+        </div>
+        <div class="home-section3">
+            <h2>Brands</h2>
+            <div class="sec1">
+              <img src="../media/brand.png" alt="">
+            </div>
+        </div>
+        <div class="home-section4">
+            <div class="sec1">
+                <img src="https://marketplace.canva.com/EAFLU0NpTbE/1/0/1600w/canva-brown-modern-new-brand-fashion-banner-u97g9GPKB4g.jpg" alt="">
+                
+            </div>
+        </div>
+        <div class="home-section5">
+            <h2>Features</h2>
+            <div class="sec1">
+                <img src="../media/features.jpg" alt="">
+            </div>
+        </div>
+        <div class="home-section4 ">
+      
+            <div class="sec1"><img src="../media/phone2.avif" alt=""></div>
+            <div class="sec1"><img src="../media/phone2.avif" alt=""></div>
+            <div class="sec1"><img src="../media/phone2.avif" alt=""></div>
+        </div>
+        </div>
+    </div>
+
+   
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="row">
+            <div class="footer-col">
+                <h4>MADHAV</h4>
+                <ul>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">our services</a></li>
+                <li><a href="#">privacy policy</a></li>
+                <li><a href="#">affiliate program</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get help</h4>
+                <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">shipping</a></li>
+                <li><a href="#">returns</a></li>
+                <li><a href="#">order status</a></li>
+                <li><a href="#">payment options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick shop</h4>
+                <ul>
+                <li><a href="#">accessories</a></li>
+                <li><a href="#">groceries</a></li>
+                <li><a href="#">daily care</a></li>
+                <li><a href="#">clothing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us on</h4>
+                <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    
+   
+</body>
+<script src="../JavaScript/index.js"></script>
+
+</html>

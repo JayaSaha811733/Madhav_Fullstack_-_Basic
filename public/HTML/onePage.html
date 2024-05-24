@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhav</title>
+    <link
+     rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" 
+     />
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    <style>
+        .center-piece{
+            width: 100%;
+            height: fit-content;
+            min-height: 100vh;
+            padding-top: 80px;
+            
+        }
+        .product{
+            width: 90%;
+            padding: 20px;
+            border: 1px solid rgba(201, 199, 199, 0.411);
+            border-bottom:none;
+            margin:30px auto;
+            display: flex;
+            height: fit-content;
+            flex-wrap: wrap;
+            
+        }
+        .product-image{
+            
+            margin: 20px auto;
+            border: 1px solid rgba(192, 190, 190, 0.651);
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+            object-position: center;
+            background-size: contain;
+            position: relative;
+        }
+        .details{
+            /* position: relative; */
+            margin: auto;
+            /* border: 1px solid grey; */
+            box-sizing: border-box;
+           
+
+        }
+        .wishlist{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 0px;
+            text-align: center;
+            font-size: 25px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4); 
+            color: rgba(177, 176, 176, 0.644);
+            /* border: 1px solid grey; */
+            transition: all .1s;
+            
+        }
+        .wishlist:hover{
+            color: grey;
+            font-size: 30px;
+            opacity: .9;
+        }
+         .wishlist.active{
+            color: rgb(236, 25, 60);
+            text-shadow: 2px 2px 3px rgba(236, 25, 60, .5);
+            font-size: 28px;
+            
+        }
+
+        .pName{
+            font-size: 28px;
+            font-weight: lighter;
+            text-transform: capitalize;
+            margin: 5%;
+        }
+
+        .pPrice{
+            margin: 5%;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .rating{
+            border:1px solid #029c42;
+            background:#36AE7C;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            color: white;
+            width: fit-content;
+            font-size: 25px;
+            padding:5px 15px;
+            border-radius: 40px;
+            letter-spacing: 5px;
+            font-weight: bolder;
+            margin: 5%;
+            
+           
+        }
+        .description{
+            margin: 5%;
+            font-size: 18px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .addtoCart,.gotoCart{
+            width: 80%;
+            height: 40px;
+            margin: 5%;
+            background: #fdcf45;
+            border: none;
+            font-size: 20px;
+            /* font-weight: bolder; */
+            text-shadow: 2px 2px 5px rgba(252, 250, 250, 0.863);
+            box-shadow: 3px 3px 5px rgba(0,0,0,.5);
+            
+        }
+        
+
+        
+    </style>
+     
+
+</head>
+<body>
+    <div class="navbar">
+        <i class="fa fa-bars checkbtn"></i>
+        <label class="logo">MADHAV</label>
+        
+        <ul class="right">
+            <li>
+                <a href="cartwish.html">
+                    <span class="cart-icon">
+                        <i class="fa-solid fa-cart-shopping"><span class="counter">0</span></i>
+                        
+                    </span>
+                </a>
+                
+            </li>
+            <li>
+                <a href="#">
+                <span class="icon" id="profile"
+                ><i class="far fa-user"></i
+                    ></span>
+                </a>                
+            </li>
+        </ul>
+        <ul class="left ">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div> 
+    
+    <div class="login">
+        <div class="container">
+           
+            <div class="lgn">
+               
+                <a href="#" id="login" class="hover_btn "><i class="fa fa-user"></i> Login</a>   
+               
+                <a href="#" id="reg" class="hover_btn reg active"><i class="fa fa-user"></i> Register</a>   
+            </div>
+            <form id="registrationTab"  method="post" action="http://localhost:3000/registerUser">
+                <label for="ph">Fullname</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Krishna .." required>
+
+
+                <label for="ph">Phone Number</label>
+                <input name="phone" type="text" id="ph" placeholder="+91 9778937823" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Email Adress" required>
+
+                <label for="password">Create Password</label>
+                <input type="password" id="password" name="password" placeholder="password">
+
+                <button class="btn" type="submit" id="regBtn"> Submit</button>
+            </form>
+
+            <form id="loginTab" method="post" action="http://localhost:3000/loginUser" class="invisible">
+                <label for="ph">Phone Number</label>
+                <input type="text" id="loginph" name="phone" placeholder="+91 9778937823" required>
+                <label for="email">Email Address</label>
+                <input type="email" id="lgnemail" name="email" placeholder="Email Adress" required>
+                <label for="password">Password</label>
+                <input type="text" name="password" id="lgnPassword" placeholder="Password">
+
+                <button class="btn" type="submit" id="lgnBtn"> Submit</button>
+                
+            </form> 
+           
+            
+            
+            
+        </div>
+        <div class="image"><div class="close-icon">
+            <i class="fas fa-times fa-x"></i>
+        </div></div>
+        
+    </div>
+
+    <div class="center-piece">
+        <div class="product">
+            <div class="product-image">
+                <div class="wishlist" id="${element}">
+                    <i class="fa-solid fa-heart"></i>
+                    </div>
+            </div>
+            <div class="details">
+                
+
+            </div>
+        </div>
+    </div>
+   
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="row">
+            <div class="footer-col">
+                <h4>MADHAV</h4>
+                <ul>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">our services</a></li>
+                <li><a href="#">privacy policy</a></li>
+                <li><a href="#">affiliate program</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get help</h4>
+                <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">shipping</a></li>
+                <li><a href="#">returns</a></li>
+                <li><a href="#">order status</a></li>
+                <li><a href="#">payment options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick shop</h4>
+                <ul>
+                <li><a href="#">accessories</a></li>
+                <li><a href="#">groceries</a></li>
+                <li><a href="#">daily care</a></li>
+                <li><a href="#">clothing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us on</h4>
+                <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    
+   
+</body>
+<script src="../JavaScript/index.js"></script>
+<script>
+    const productEl=document.querySelector(".product")
+    const productdetailsEl=document.querySelector(".details")
+    const productImageEl=document.querySelector(".product-image")
+    const wishEl=document.querySelector(".wishlist")
+    let productId=JSON.parse(localStorage.getItem("card-id"))
+    let cartCount=JSON.parse(localStorage.getItem("count-cart"));
+    
+    if(!cartCount){
+        cartCount=[];
+    }
+    let wishlistCount=JSON.parse(localStorage.getItem("count-wishlist"))
+    if(!wishlistCount){
+        wishlistCount=[];
+    }
+
+
+    
+    if(wishlistCount.indexOf(productId)+1>0){
+                wishEl.classList.add("active");
+            }
+    wishEl.addEventListener("click",()=>{
+        wishEl.classList.toggle("active");
+        if(wishEl.classList.contains("active")){
+            console.log("Yes")
+            wishlistCount.push(productId);
+        }
+        else{
+            console.log("Done")
+            wishlistCount.splice(wishlistCount.indexOf(productId),1);
+        }
+        updateLocalStorage();
+        
+    })
+   
+    
+    let product;
+    // console.log(productId)
+
+    function updateLocalStorage() {
+        localStorage.setItem("count-wishlist", JSON.stringify(wishlistCount));
+        
+        localStorage.setItem("count-cart", JSON.stringify(cartCount));
+    }
+
+    fetch("../Others/all.json").then(res=>res.json()).then(data=>{
+        product=data[parseInt(productId)-1];
+        // console.log(product)
+        
+
+        productImageEl.style.backgroundImage=`url(${product.Image})`
+        productdetailsEl.innerHTML=`<h4 class="pName">${product.Product}</h4>
+                <h5 class="pPrice"><i class="fa-solid fa-indian-rupee-sign"></i>${product.Price} </h5>
+                <div class="rating">4.5</div>
+                <div class="description">
+                    <h4>Description</h4>
+                    <p>${product.Description}</p>
+
+                </div>
+                <button class="addtoCart" data-id=${product.id}> <i class="fa-solid fa-cart-shopping "></i> Add To Cart</button>`;
+        containerSize()
+        const cartEl=document.querySelector(".addtoCart")
+
+        if(cartCount.indexOf(cartEl.dataset.id)+1>0){
+            cartEl.classList.add("gotoCart");
+            cartEl.classList.remove("addtoCart");
+            cartEl.innerHTML=`<i class="fa-solid fa-cart-shopping "></i> Go To Cart`;
+
+        }
+        cartEl.addEventListener("click",()=>{
+            if(cartEl.classList.contains("addtoCart")){
+                cartCount.push(cartEl.dataset.id);
+            }
+            else if(cartEl.classList.contains("gotoCart")){
+                window.location.href="cartwish.html"
+            }
+            cartEl.classList.toggle("addtoCart")
+            cartEl.classList.toggle("gotoCart")
+            cartEl.innerHTML=`<i class="fa-solid fa-cart-shopping "></i> Go To Cart`;
+            // console.log(cartCount)
+            updateLocalStorage();
+            counterEl.innerHTML=cartCount.length;
+        })
+    })
+    
+    function containerSize(){
+        let wSize=productEl.offsetWidth;
+        let hSize=productEl.offsetHeight;
+        let dwidth;
+        if(window.innerWidth>900){
+            productImageEl.style.width=400+"px";
+            productImageEl.style.height=400+"px";
+            productdetailsEl.style.width=wSize-450+"px";
+            productdetailsEl.style.height="fit-content";           
+
+
+        }
+        else if(window.innerWidth>600){
+
+        }
+
+
+    }
+    window.onresize=function(){
+        containerSize()
+    }
+</script>
+
+</html>
